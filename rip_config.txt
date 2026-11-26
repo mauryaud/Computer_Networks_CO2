@@ -1,0 +1,15 @@
+enable
+configure terminal
+
+router rip
+version 2
+no auto-summary
+
+network <connected-network-1>
+network <connected-network-2>
+
+end
+
+show ip protocols
+show ip route
+show ip rip database
