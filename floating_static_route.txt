@@ -1,0 +1,13 @@
+! R1 backup interface
+interface Serial0/0/1
+ip address 10.0.0.5 255.255.255.252
+no shutdown
+exit
+
+! R1 primary route
+ip route 192.168.20.0 255.255.255.0 10.0.0.2
+
+! R1 backup route - AD 200
+ip route 192.168.20.0 255.255.255.0 10.0.0.6 200
+
+show ip route
