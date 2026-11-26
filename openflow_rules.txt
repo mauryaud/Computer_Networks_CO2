@@ -1,0 +1,35 @@
+OPENFLOW FLOW TABLE
+
+Priority 200:
+Match IPv4 destination 10.5.0.0/16
+Action: OUTPUT PORT 3
+
+Priority 100:
+Match TCP destination port 80
+Action: OUTPUT CONTROLLER
+
+Priority 0:
+Match all remaining packets
+Action: DROP
+
+
+PACKET 1
+
+Destination: 10.5.1.1
+Protocol: HTTP
+
+Result:
+Priority 200 matches.
+Packet forwarded to port 3.
+
+
+PACKET 2
+
+Destination: 10.6.1.1
+Protocol: SSH
+
+Result:
+Does not match priority 200.
+Does not match TCP port 80.
+Priority 0 applies.
+Packet dropped.
