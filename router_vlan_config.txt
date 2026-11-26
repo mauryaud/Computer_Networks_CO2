@@ -1,0 +1,35 @@
+enable
+configure terminal
+
+hostname Campus_Router
+
+interface GigabitEthernet0/0
+no shutdown
+exit
+
+interface GigabitEthernet0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.128
+exit
+
+interface GigabitEthernet0/0.20
+encapsulation dot1Q 20
+ip address 192.168.10.129 255.255.255.192
+exit
+
+interface GigabitEthernet0/0.30
+encapsulation dot1Q 30
+ip address 192.168.10.193 255.255.255.224
+exit
+
+interface GigabitEthernet0/0.50
+encapsulation dot1Q 50
+ip address 192.168.11.1 255.255.255.192
+exit
+
+end
+
+write memory
+
+show ip interface brief
+show ip route
