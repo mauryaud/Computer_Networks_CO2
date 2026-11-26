@@ -1,0 +1,50 @@
+enable
+configure terminal
+
+hostname Campus_Switch
+
+vlan 10
+name LABS
+exit
+
+vlan 20
+name STAFF
+exit
+
+vlan 30
+name LIBRARY
+exit
+
+vlan 50
+name HOSTEL
+exit
+
+interface GigabitEthernet0/1
+switchport mode trunk
+no shutdown
+exit
+
+interface range FastEthernet0/1-8
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range FastEthernet0/9-12
+switchport mode access
+switchport access vlan 20
+exit
+
+interface range FastEthernet0/13-16
+switchport mode access
+switchport access vlan 30
+exit
+
+interface range FastEthernet0/17-20
+switchport mode access
+switchport access vlan 50
+exit
+
+end
+
+show vlan brief
+show interfaces trunk
