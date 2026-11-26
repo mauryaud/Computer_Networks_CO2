@@ -1,0 +1,10 @@
+enable
+configure terminal
+
+interface <interface-connected-to-failed-link>
+shutdown
+
+end
+
+show ip route
+show ip protocols
